@@ -239,7 +239,7 @@
   overflow: hidden;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding-block: clamp(2.35rem, 4vw, 3.15rem);
+  padding-block: clamp(0.35rem, 2vw, 1.15rem);
   background: var(--surface);
 }
 
@@ -255,7 +255,7 @@
 }
 
 .marqueeSection > p {
-  margin: 0 0 clamp(1.55rem, 3vw, 2rem);
+  margin: 0 0 clamp(1.55rem, 3vw, 4rem);
   color: var(--muted);
   font-size: 0.7rem;
   font-weight: 650;
@@ -847,82 +847,217 @@
 .aboutActions { justify-content: flex-start; margin-top: 1.75rem; }
 
 .skillsSection {
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--line);
   padding-block: var(--section-space);
-  background: var(--ink);
-  color: var(--background);
+  background:
+    radial-gradient(
+      circle at 86% 18%,
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 24rem
+    ),
+    var(--background);
 }
 
-.skillsHeader {
+.skillsIntro {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 3rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--background) 18%, transparent);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
-.skillsHeader p {
+.skillsIntro p {
   margin: 0 0 0.8rem;
-  color: color-mix(in srgb, var(--background) 58%, transparent);
+  color: var(--accent);
   font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 750;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
-.skillsHeader h2 {
-  max-width: 40rem;
+.skillsIntro h2 {
+  max-width: 42rem;
   margin: 0;
-  color: var(--background);
+  color: var(--ink);
   font-size: clamp(2.5rem, 5vw, 4.8rem);
   letter-spacing: -0.065em;
-  line-height: 1;
+  line-height: 0.98;
 }
 
-.skillsHeader > span {
-  max-width: 19rem;
-  color: color-mix(in srgb, var(--background) 58%, transparent);
+.skillsIntro > span {
+  max-width: 23rem;
+  color: var(--muted);
   font-size: 0.84rem;
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
-.skillsGrid {
+.skillsBento {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.skillsGrid article {
-  min-height: 27rem;
-  border-right: 1px solid color-mix(in srgb, var(--background) 18%, transparent);
-  padding: 1.6rem clamp(1rem, 2.5vw, 2rem) 2rem;
+.skillCard {
+  position: relative;
+  display: flex;
+  min-height: 22rem;
+  grid-column: span 4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.45rem;
+  padding: clamp(1.35rem, 2.7vw, 2rem);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 18px 65px rgba(25, 25, 30, 0.055);
+  flex-direction: column;
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
-.skillsGrid article:first-child { padding-left: 0; }
-.skillsGrid article:last-child { border-right: 0; padding-right: 0; }
+.skillCard:hover {
+  border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
+  box-shadow:
+    0 24px 80px color-mix(in srgb, var(--accent) 10%, transparent);
+  transform: translateY(-0.35rem);
+}
 
-.skillsGrid article > p {
-  margin: 0 0 clamp(4rem, 8vw, 7rem);
+.featuredSkillCard {
+  grid-column: span 8;
+  background:
+    radial-gradient(
+      circle at 88% 15%,
+      rgba(167, 158, 255, 0.28),
+      transparent 17rem
+    ),
+    linear-gradient(135deg, #171719 0%, #211d34 100%);
+  color: #f5f5f3;
+}
+
+.wideSkillCard {
+  grid-column: span 6;
+}
+
+.featuredSkillCard::after {
+  position: absolute;
+  right: -5rem;
+  bottom: -8rem;
+  width: 19rem;
+  height: 19rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  content: "";
+}
+
+.skillCardHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.skillCardIcon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border: 1px solid
+    color-mix(in srgb, var(--accent) 22%, var(--line));
+  border-radius: 0.85rem;
+  background: var(--accent-soft);
   color: var(--accent);
+}
+
+.skillCardIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.featuredSkillCard .skillCardIcon {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.09);
+  color: #b6afff;
+}
+
+.skillCardIndex {
+  color: var(--muted);
   font-family: var(--display-font);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
 }
 
-.skillsGrid h3 {
-  margin: 0 0 1.4rem;
-  color: var(--background);
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  letter-spacing: -0.035em;
+.featuredSkillCard .skillCardIndex {
+  color: rgba(245, 245, 243, 0.42);
 }
 
-.skillsGrid ul {
-  display: grid;
-  gap: 0.7rem;
+.skillCardCopy {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(2.8rem, 5vw, 4.5rem);
+}
+
+.skillCardCopy h3 {
   margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.skillCardCopy p {
+  max-width: 28rem;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.featuredSkillCard .skillCardCopy h3 {
+  color: #f5f5f3;
+}
+
+.featuredSkillCard .skillCardCopy p {
+  color: rgba(245, 245, 243, 0.58);
+}
+
+.skillPills {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: auto 0 0;
   padding: 0;
-  color: color-mix(in srgb, var(--background) 58%, transparent);
-  font-size: 0.83rem;
   list-style: none;
+}
+
+.skillPills li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.52rem 0.75rem;
+  background: var(--surface-soft);
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-weight: 600;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.skillCard:hover .skillPills li {
+  border-color:
+    color-mix(in srgb, var(--accent) 20%, var(--line));
+}
+
+.featuredSkillCard .skillPills li {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(245, 245, 243, 0.72);
 }
 
 .contactSection {
@@ -1230,4 +1365,40 @@
   .skillsGrid article:last-child { border-bottom: 0; }
   .skillsGrid article > p { margin-bottom: 2.5rem; }
   .emailLink { font-size: 0.9rem; }
+}
+@media (max-width: 960px) {
+  .skillCard,
+  .featuredSkillCard,
+  .wideSkillCard {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 760px) {
+  .skillsIntro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .skillsIntro > span {
+    max-width: 34rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .skillsBento {
+    grid-template-columns: 1fr;
+  }
+
+  .skillCard,
+  .featuredSkillCard,
+  .wideSkillCard {
+    min-height: 20rem;
+    grid-column: 1 / -1;
+  }
+
+  .skillCardCopy {
+    margin-top: 2.5rem;
+  }
 }

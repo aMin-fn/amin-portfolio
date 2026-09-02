@@ -75,7 +75,7 @@
   transition: background 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
-.navigation a:hover {
+.navigation a:hover :not .active {
   color: var(--ink);
 }
 

@@ -41,7 +41,7 @@ export default function OpenGraphImage() {
         </div>
         <div style={{ display: "flex", fontSize: 22, justifyContent: "space-between" }}>
           <span>React · Next.js · TypeScript</span>
-          <span>Isfahan, Iran</span>
+          <span>Isfahan ,  tehran ,  tehran, Iran</span>
         </div>
       </div>
       <div

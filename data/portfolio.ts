@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Amin FOROUZANDEH",
   shortName: "AMIN",
   role: "Frontend Developer",
-  location: "Isfahan, Iran",
+  location: "Isfahan ,  tehran ,  tehran, Iran",
   timezone: "GMT+3:30",
   email: "aminfn4@gmail.com",
   phone: "+98 905 878 9349",
@@ -53,7 +53,7 @@ export const experiences: readonly Experience[] = [
   {
     company: "Dadeh Gostar Khat Roshan",
     role: "Frontend Developer",
-    period: "2025 — Present",
+    period: "2025-9 — Present",
     location: "Iran",
     summary:
       "Owning frontend delivery across multi-tenant public services, utility PWAs, analytical dashboards, and AI-powered products.",
@@ -69,7 +69,7 @@ export const experiences: readonly Experience[] = [
   {
     company: "Digimark AI",
     role: "Frontend Developer",
-    period: "2024",
+    period: "2025-6 2025-9",
     location: "Iran",
     summary:
       "Developed and maintained responsive B2C interfaces for an established product with a large active user base.",
