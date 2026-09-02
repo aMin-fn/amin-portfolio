@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amin FOROUZANDEH — Portfolio
 
-## Getting Started
+A polished, responsive portfolio built with Next.js, React, and TypeScript. The visual direction uses a clean editorial layout, Orbitron display typography, Inter body text, light/dark themes, scroll reveals, an animated skills marquee, and real product screenshots.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Edit portfolio content
 
-To learn more about Next.js, take a look at the following resources:
+All personal content is centralized in `data/portfolio.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `siteConfig`: contact details and profile links
+- `experiences`: work history, highlights, and technologies
+- `projects`: project cards, links, outcomes, and status
+- `skillGroups`: categorized technical stack
+- `marqueeSkills`: animated day-to-day technology rail
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Add a project screenshot
 
-## Deploy on Vercel
+1. Put an optimized image in `public/projects/`, preferably WebP or AVIF.
+2. Add an `image` object to the project inside `data/portfolio.ts`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+image: {
+  src: "/projects/project-name.webp",
+  alt: "A useful description of the project screen",
+  width: 1600,
+  height: 1000,
+},
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If no image is supplied, the site renders a custom animated dashboard mockup automatically.
+
+## Theme and animation
+
+- The theme switch persists the visitor preference in local storage.
+- Scroll reveals use a small native Intersection Observer instead of a large animation dependency.
+- `prefers-reduced-motion` is respected for accessibility.
+
+## Resume
+
+The downloadable PDF is stored at `public/Amin_Farouzandeh_Resume.pdf`.
