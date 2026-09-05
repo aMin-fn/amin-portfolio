@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { siteConfig } from "@/data/portfolio";
 
 import { ArrowIcon } from "../ui/arrow-icon";
@@ -27,23 +29,45 @@ export function AboutSection() {
               <span>01</span>
               <p>Product mindset</p>
             </div>
-            <h3>Complex workflows should still feel obvious.</h3>
-            <p>
-              I care about the parts users actually feel: how quickly a page becomes
-              useful, how naturally a form behaves, and whether the interface stays
-              clear when the product gets complicated.
-            </p>
-            <div className={styles.aboutLocation}>
-              <i aria-hidden="true" />
-              <span>{siteConfig.location} · Available for remote collaboration</span>
+
+            <div className={styles.aboutLeadContent}>
+              <h3>Complex workflows should still feel obvious.</h3>
+
+              <p>
+                I care about the parts users actually feel: how quickly a page
+                becomes useful, how naturally a form behaves, and whether the
+                interface stays clear when the product gets complicated.
+              </p>
+
+              <div className={styles.aboutLocation}>
+                <i aria-hidden="true" />
+                <span>
+                  {siteConfig.location} · Available for remote collaboration
+                </span>
+              </div>
+            </div>
+
+            <div className={styles.aboutPortrait}>
+              <Image
+                src="/images/amin-portrait.png"
+                alt="Portrait of Amin Farouzandeh"
+                fill
+                sizes="(max-width: 760px) 256px, 224px"
+                className={styles.aboutPortraitImage}
+              />
             </div>
           </article>
 
-          <article className={styles.aboutStrengthsCard} data-delay="80" data-reveal>
+          <article
+            className={styles.aboutStrengthsCard}
+            data-delay="80"
+            data-reveal
+          >
             <div className={styles.aboutCardLabel}>
               <span>02</span>
               <p>What I bring</p>
             </div>
+
             <ul>
               {strengths.map(([title, description]) => (
                 <li key={title}>
@@ -59,27 +83,45 @@ export function AboutSection() {
               <span>03</span>
               <p>Education</p>
             </div>
+
             <strong>B.Sc. Computer Engineering</strong>
-            <p>University of Isfahan ,    ,   </p>
+            <p>University of Isfahan</p>
             <time>2022 — Present</time>
           </article>
 
-          <article className={styles.aboutOwnershipCard} data-delay="80" data-reveal>
+          <article
+            className={styles.aboutOwnershipCard}
+            data-delay="80"
+            data-reveal
+          >
             <div className={styles.aboutCardLabel}>
               <span>04</span>
               <p>Best at</p>
             </div>
+
             <h3>Production ownership, not just implementation.</h3>
+
             <p>
-              My strongest work sits where product thinking meets frontend engineering:
-              multi-tenant architecture, dynamic forms, server-state workflows,
-              analytical dashboards, and performance-focused React and Next.js delivery.
+              My strongest work sits where product thinking meets frontend
+              engineering: multi-tenant architecture, dynamic forms,
+              server-state workflows, analytical dashboards, and
+              performance-focused React and Next.js delivery.
             </p>
+
             <div className={styles.aboutActions}>
-              <a className={styles.primaryButton} href={`mailto:${siteConfig.email}`}>
+              <a
+                className={styles.primaryButton}
+                href={`mailto:${siteConfig.email}`}
+              >
                 Let&apos;s talk <ArrowIcon />
               </a>
-              <a className={styles.secondaryButton} href={siteConfig.linkedin} rel="noreferrer" target="_blank">
+
+              <a
+                className={styles.secondaryButton}
+                href={siteConfig.linkedin}
+                rel="noreferrer"
+                target="_blank"
+              >
                 LinkedIn <ArrowIcon />
               </a>
             </div>

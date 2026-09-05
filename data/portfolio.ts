@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Amin FOROUZANDEH",
   shortName: "AMIN",
   role: "Frontend Developer",
-  location: "Isfahan ,   , Iran",
+  location: "Isfahan, Iran",
   timezone: "GMT+3:30",
   email: "aminfn4@gmail.com",
   phone: "+98 905 878 9349",
