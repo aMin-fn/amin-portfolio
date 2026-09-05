@@ -58,7 +58,7 @@ export function ProjectVisual({ title, eyebrow, tone, image, images, imagePresen
               <span /><span /><span /><span /><span /><span />
             </div>
             <div className={styles.miniCards}>
-              <div><small>Users</small><strong>{index === 2 ? "1.4K" : "5K+"}</strong></div>
+              <div><small>Users</small><strong>{index === 2 ? "2.1K" : "5K+"}</strong></div>
               <div><small>Uptime</small><strong>99.9%</strong></div>
               <div><small>Speed</small><strong>Fast</strong></div>
             </div>

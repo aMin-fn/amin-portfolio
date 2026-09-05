@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Amin FOROUZANDEH",
   shortName: "AMIN",
   role: "Frontend Developer",
-  location: "Isfahan ,  tehran ,  tehran, Iran",
+  location: "Isfahan ,   , Iran",
   timezone: "GMT+3:30",
   email: "aminfn4@gmail.com",
   phone: "+98 905 878 9349",
@@ -30,7 +30,7 @@ export const navigation: readonly NavItem[] = [
 export const metrics: readonly Metric[] = [
   { value: "3+", label: "Years building production frontends" },
   { value: "5K+", label: "Daily sessions on shipped platforms" },
-  { value: "1.4K+", label: "Active users on a maintained product" },
+  { value: "2.1K+", label: "Active users on a maintained product" },
 ];
 
 export const marqueeSkills = [
@@ -51,7 +51,7 @@ export const marqueeSkills = [
 
 export const experiences: readonly Experience[] = [
   {
-    company: "Dadeh Gostar Khat Roshan",
+    company: "Dadeh Gostar Khat e Roshan",
     role: "Frontend Developer",
     period: "2025-9 — Present",
     location: "Iran",

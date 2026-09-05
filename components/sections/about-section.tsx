@@ -60,7 +60,7 @@ export function AboutSection() {
               <p>Education</p>
             </div>
             <strong>B.Sc. Computer Engineering</strong>
-            <p>University of Isfahan ,  tehran ,  tehran</p>
+            <p>University of Isfahan ,    ,   </p>
             <time>2022 — Present</time>
           </article>
 
