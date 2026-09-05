@@ -68,6 +68,11 @@ export function ProjectsSection() {
                       Request details <ArrowIcon />
                     </a>
                   ) : null}
+                  {project.url && (
+                    <a href={project.url} rel="noreferrer" target="_blank">
+                      {project.url} <ArrowIcon />
+                    </a>)}
+
                 </div>
               </div>
             </article>

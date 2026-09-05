@@ -37,6 +37,7 @@ export type Project = {
   contributions: readonly string[];
   outcome: string;
   href?: `https://${string}`;
+  url?: `https://${string}`;
   linkLabel?: string;
   status: "Live" | "Demo" | "Private" | "Private case study" | "Concept";
   technologies: readonly string[];
