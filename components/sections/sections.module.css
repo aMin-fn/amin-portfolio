@@ -281,9 +281,14 @@
 .heroStage {
   position: relative;
   min-height: 28rem;
+  isolation: isolate;
 }
 
 .heroFrame {
+  --frame-rotate: 0deg;
+  --frame-x: 0px;
+  --frame-y: 0px;
+  --frame-scale: 1;
   position: absolute;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
@@ -291,6 +296,29 @@
   margin: 0;
   background: var(--surface);
   box-shadow: 0 24px 70px rgba(16, 16, 20, 0.18);
+  cursor: pointer;
+  transform: translate(var(--frame-x), var(--frame-y)) rotate(var(--frame-rotate)) scale(var(--frame-scale));
+  transform-origin: center;
+  transition:
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 480ms ease,
+    z-index 0s linear 620ms;
+}
+
+.heroFrame::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.34) 48%,
+    transparent 64%
+  );
+  content: "";
+  opacity: 0;
+  transform: translateX(-140%);
 }
 
 .heroFrame img {
@@ -299,6 +327,7 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .heroFrame figcaption {
@@ -321,7 +350,7 @@
   z-index: 3;
   width: 78%;
   aspect-ratio: 16 / 10;
-  transform: rotate(-3.5deg);
+  --frame-rotate: -3.5deg;
 }
 
 .heroFrame[data-index="1"] {
@@ -330,7 +359,7 @@
   z-index: 2;
   width: 62%;
   aspect-ratio: 16 / 10;
-  transform: rotate(5deg);
+  --frame-rotate: 5deg;
 }
 
 .heroFrame[data-index="2"] {
@@ -340,19 +369,60 @@
   width: 38%;
   aspect-ratio: 9 / 16;
   border-radius: 1.4rem;
-  transform: rotate(8deg);
+  --frame-rotate: 8deg;
 }
 
-.heroStage:hover .heroFrame[data-index="0"] {
-  transform: rotate(-1deg) translateY(-0.4rem);
-}
+@media (hover: hover) and (pointer: fine) {
+  .heroStage:hover .heroFrame[data-index="0"] {
+    --frame-rotate: -9deg;
+    --frame-x: -8%;
+    --frame-y: 10%;
+    --frame-scale: 0.9;
+    filter: brightness(0.68) saturate(0.82);
+  }
 
-.heroStage:hover .heroFrame[data-index="1"] {
-  transform: rotate(2deg) translate(-0.3rem, 0.2rem);
-}
+  .heroStage:hover .heroFrame[data-index="1"] {
+    --frame-rotate: 10deg;
+    --frame-x: -6%;
+    --frame-y: 8%;
+    --frame-scale: 0.88;
+    filter: brightness(0.68) saturate(0.82);
+  }
 
-.heroStage:hover .heroFrame[data-index="2"] {
-  transform: rotate(4deg) translateY(-0.5rem);
+  .heroStage:hover .heroFrame[data-index="2"] {
+    --frame-rotate: 12deg;
+    --frame-x: 8%;
+    --frame-y: 6%;
+    --frame-scale: 0.9;
+    filter: brightness(0.68) saturate(0.82);
+  }
+
+  .heroStage .heroFrame:hover {
+    z-index: 12;
+    --frame-rotate: 0deg;
+    --frame-x: 0px;
+    --frame-y: -1.35rem;
+    --frame-scale: 1.12;
+    filter: none;
+    box-shadow:
+      0 2.8rem 4.6rem rgba(16, 16, 22, 0.32),
+      0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+    transition:
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 420ms ease,
+      filter 280ms ease,
+      z-index 0s;
+  }
+
+  .heroStage .heroFrame:hover img {
+    transform: scale(1.08);
+  }
+
+  .heroStage .heroFrame:hover::after {
+    opacity: 1;
+    transform: translateX(140%);
+    transition: transform 780ms ease, opacity 200ms ease;
+  }
 }
 
 .marqueeSection {
