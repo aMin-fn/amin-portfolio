@@ -629,8 +629,13 @@
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
-  padding: 0.55rem;
+  padding: 0.7rem;
   background: var(--surface);
+}
+
+:root[data-theme="dark"] .timelineIndex {
+  border-color: #3a3a40;
+  background: #232326;
 }
 
 .companyLogo {
