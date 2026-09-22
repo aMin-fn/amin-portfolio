@@ -47,17 +47,39 @@
 .heroInner {
   position: relative;
   z-index: 2;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
   align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.heroCopy {
+  display: flex;
+  min-width: 0;
   flex-direction: column;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.heroName {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  flex-direction: column;
+  color: var(--ink);
+  font-family: var(--display-font);
+  font-size: clamp(2.6rem, 6.4vw, 5.6rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 
 .heroKicker {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  margin: 0 0 clamp(2rem, 5vw, 4rem);
+  margin: 0 0 clamp(1.4rem, 3vw, 2.4rem);
   color: var(--muted);
   font-size: 0.74rem;
   font-weight: 600;
@@ -78,20 +100,6 @@
   50% {
     box-shadow: 0 0 0 0.48rem color-mix(in srgb, var(--success) 0%, transparent);
   }
-}
-
-.heroName {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  flex-direction: column;
-  color: var(--ink);
-  font-family: var(--display-font);
-  font-size: clamp(3.2rem, 8vw, 7.35rem);
-  font-weight: 600;
-  letter-spacing: 0.015em;
-  line-height: 0.92;
-  text-transform: uppercase;
 }
 
 .heroName span:last-child {
@@ -128,7 +136,7 @@
 .aboutActions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 2.25rem;
@@ -268,6 +276,83 @@
 .heroSocials svg {
   width: 1.22rem;
   height: 1.22rem;
+}
+
+.heroStage {
+  position: relative;
+  min-height: 28rem;
+}
+
+.heroFrame {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-radius: 1.15rem;
+  margin: 0;
+  background: var(--surface);
+  box-shadow: 0 24px 70px rgba(16, 16, 20, 0.18);
+}
+
+.heroFrame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.heroFrame figcaption {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.75rem;
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem;
+  background: rgba(16, 16, 20, 0.72);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.heroFrame[data-index="0"] {
+  top: 8%;
+  right: 6%;
+  z-index: 3;
+  width: 78%;
+  aspect-ratio: 16 / 10;
+  transform: rotate(-3.5deg);
+}
+
+.heroFrame[data-index="1"] {
+  top: 38%;
+  left: 0;
+  z-index: 2;
+  width: 62%;
+  aspect-ratio: 16 / 10;
+  transform: rotate(5deg);
+}
+
+.heroFrame[data-index="2"] {
+  right: 4%;
+  bottom: 0;
+  z-index: 4;
+  width: 38%;
+  aspect-ratio: 9 / 16;
+  border-radius: 1.4rem;
+  transform: rotate(8deg);
+}
+
+.heroStage:hover .heroFrame[data-index="0"] {
+  transform: rotate(-1deg) translateY(-0.4rem);
+}
+
+.heroStage:hover .heroFrame[data-index="1"] {
+  transform: rotate(2deg) translate(-0.3rem, 0.2rem);
+}
+
+.heroStage:hover .heroFrame[data-index="2"] {
+  transform: rotate(4deg) translateY(-0.5rem);
 }
 
 .marqueeSection {
@@ -636,12 +721,21 @@
   font-size: 0.64rem;
 }
 
-.projectStatus::before {
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 50%;
-  background: var(--success);
-  content: "";
+.projectStatus[data-status="Demo"]::before {
+  background: #e0a54b;
+}
+
+.projectStatus[data-status="Private"]::before,
+.projectStatus[data-status="Private case study"]::before,
+.projectStatus[data-status="Concept"]::before {
+  background: var(--muted);
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.85rem;
 }
 
 .projectDescription {
@@ -1504,6 +1598,24 @@
 }
 
 @media (max-width: 960px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .heroStage {
+    min-height: 22rem;
+    order: -1;
+  }
+
+  .heroFrame[data-index="0"] {
+    width: 72%;
+  }
+
+  .heroFrame[data-index="2"] {
+    width: 32%;
+  }
+
   .featuredProject> :first-child {
     min-height: clamp(27rem, 62vw, 38rem);
   }
@@ -1554,6 +1666,10 @@
 @media (max-width: 760px) {
   .hero {
     padding-top: 7rem;
+  }
+
+  .heroStage {
+    min-height: 16rem;
   }
 
   .heroName {

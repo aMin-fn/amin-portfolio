@@ -13,10 +13,16 @@ import styles from "./ui.module.css";
 type ProjectGalleryProps = {
   images: readonly ProjectImage[];
   presentation?: ProjectImagePresentation;
+  priority?: boolean;
   title: string;
 };
 
-export function ProjectGallery({ images, presentation = "desktop", title }: ProjectGalleryProps) {
+export function ProjectGallery({
+  images,
+  presentation = "desktop",
+  priority = false,
+  title,
+}: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const touchStartX = useRef<number | null>(null);
@@ -104,8 +110,7 @@ export function ProjectGallery({ images, presentation = "desktop", title }: Proj
               alt={activeImage.alt}
               className={styles.galleryImage}
               fill
-              unoptimized
-              priority={activeIndex === 0}
+              priority={priority && activeIndex === 0}
               sizes="(max-width: 760px) 100vw, 1180px"
               src={activeImage.src}
             />
@@ -175,34 +180,38 @@ export function ProjectGallery({ images, presentation = "desktop", title }: Proj
             >
               ×
             </button>
-            <button
-              aria-label="Previous screenshot"
-              className={`${styles.lightboxArrow} ${styles.lightboxArrowPrevious}`}
-              onClick={(event) => {
-                event.stopPropagation();
-                moveSlide(-1);
-              }}
-              type="button"
-            >
-              ‹
-            </button>
+            {hasMultipleImages ? (
+              <button
+                aria-label="Previous screenshot"
+                className={`${styles.lightboxArrow} ${styles.lightboxArrowPrevious}`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  moveSlide(-1);
+                }}
+                type="button"
+              >
+                ‹
+              </button>
+            ) : null}
             <div
               className={`${styles.lightboxImage} ${presentation === "mobile" ? styles.mobileLightboxImage : ""}`}
               onClick={(event) => event.stopPropagation()}
             >
-              <Image alt={activeImage.alt} fill sizes="100vw" src={activeImage.src} unoptimized />
+              <Image alt={activeImage.alt} fill sizes="100vw" src={activeImage.src} />
             </div>
-            <button
-              aria-label="Next screenshot"
-              className={`${styles.lightboxArrow} ${styles.lightboxArrowNext}`}
-              onClick={(event) => {
-                event.stopPropagation();
-                moveSlide(1);
-              }}
-              type="button"
-            >
-              ›
-            </button>
+            {hasMultipleImages ? (
+              <button
+                aria-label="Next screenshot"
+                className={`${styles.lightboxArrow} ${styles.lightboxArrowNext}`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  moveSlide(1);
+                }}
+                type="button"
+              >
+                ›
+              </button>
+            ) : null}
           </div>,
           document.body,
         )}

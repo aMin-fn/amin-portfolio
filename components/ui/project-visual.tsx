@@ -5,15 +5,35 @@ import type { Project } from "@/types/portfolio";
 import { ProjectGallery } from "./project-gallery";
 import styles from "./ui.module.css";
 
-type ProjectVisualProps = Pick<Project, "title" | "eyebrow" | "tone" | "image" | "images" | "imagePresentation"> & {
+type ProjectVisualProps = Pick<
+  Project,
+  "title" | "eyebrow" | "tone" | "image" | "images" | "imagePresentation"
+> & {
   index: number;
+  priority?: boolean;
 };
 
-export function ProjectVisual({ title, eyebrow, tone, image, images, imagePresentation, index }: ProjectVisualProps) {
+export function ProjectVisual({
+  title,
+  eyebrow,
+  tone,
+  image,
+  images,
+  imagePresentation,
+  index,
+  priority = false,
+}: ProjectVisualProps) {
   if (images?.length) {
     return (
-      <div className={`${styles.projectVisual} ${styles.galleryVisual} ${imagePresentation === "mobile" ? styles.mobileGalleryVisual : ""}`}>
-        <ProjectGallery images={images} presentation={imagePresentation} title={title} />
+      <div
+        className={`${styles.projectVisual} ${styles.galleryVisual} ${imagePresentation === "mobile" ? styles.mobileGalleryVisual : ""}`}
+      >
+        <ProjectGallery
+          images={images}
+          presentation={imagePresentation}
+          priority={priority}
+          title={title}
+        />
       </div>
     );
   }
@@ -25,6 +45,7 @@ export function ProjectVisual({ title, eyebrow, tone, image, images, imagePresen
           alt={image.alt}
           className={styles.projectImage}
           height={image.height}
+          priority={priority}
           sizes="(max-width: 760px) 100vw, 60vw"
           src={image.src}
           width={image.width}
@@ -41,26 +62,50 @@ export function ProjectVisual({ title, eyebrow, tone, image, images, imagePresen
       </div>
       <div className={styles.appWindow}>
         <div className={styles.windowTop}>
-          <div><span /><span /><span /></div>
+          <div>
+            <span />
+            <span />
+            <span />
+          </div>
           <i />
         </div>
         <div className={styles.windowBody}>
           <aside>
             <strong>{title.slice(0, 1)}</strong>
-            <span /><span /><span /><span />
+            <span />
+            <span />
+            <span />
+            <span />
           </aside>
           <div className={styles.dashboard}>
             <div className={styles.dashboardTop}>
-              <div><small>Overview</small><strong>{title}</strong></div>
+              <div>
+                <small>Overview</small>
+                <strong>{title}</strong>
+              </div>
               <b>Live</b>
             </div>
             <div className={styles.chartCard}>
-              <span /><span /><span /><span /><span /><span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
             </div>
             <div className={styles.miniCards}>
-              <div><small>Users</small><strong>{index === 2 ? "2.1K" : "5K+"}</strong></div>
-              <div><small>Uptime</small><strong>99.9%</strong></div>
-              <div><small>Speed</small><strong>Fast</strong></div>
+              <div>
+                <small>Users</small>
+                <strong>2K+</strong>
+              </div>
+              <div>
+                <small>Uptime</small>
+                <strong>99.9%</strong>
+              </div>
+              <div>
+                <small>Speed</small>
+                <strong>Fast</strong>
+              </div>
             </div>
           </div>
         </div>

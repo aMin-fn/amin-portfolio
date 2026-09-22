@@ -11,7 +11,7 @@ export function ExperienceSection() {
     <section className={styles.section} id="experience">
       <Container>
         <SectionHeading
-          description="Three roles — from learning inside a production team to modernizing high-traffic national platforms."
+          description="From internship to owning national platforms, AI products, and a student app still in production."
           eyebrow="Where I’ve worked"
           title="Experience"
         />
@@ -25,13 +25,17 @@ export function ExperienceSection() {
               key={experience.company}
             >
               <div className={styles.timelineIndex}>
-                <Image
-                  alt={`${experience.company} logo`}
-                  className={styles.companyLogo}
-                  height={52}
-                  src={experience.image}
-                  width={52}
-                />
+                {experience.image ? (
+                  <Image
+                    alt={`${experience.company} logo`}
+                    className={styles.companyLogo}
+                    height={52}
+                    src={experience.image}
+                    width={52}
+                  />
+                ) : (
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                )}
               </div>
 
               <div className={styles.timelineMain}>
@@ -39,18 +43,12 @@ export function ExperienceSection() {
                   <div>
                     <p>{experience.role}</p>
                     <h3>{experience.company}</h3>
-
-                    {experience.location && (
-                      <span>{experience.location}</span>
-                    )}
+                    {experience.location ? <span>{experience.location}</span> : null}
                   </div>
-
                   <time>{experience.period}</time>
                 </div>
 
-                <p className={styles.timelineSummary}>
-                  {experience.summary}
-                </p>
+                <p className={styles.timelineSummary}>{experience.summary}</p>
 
                 <ul className={styles.timelineHighlights}>
                   {experience.highlights.map((highlight) => (

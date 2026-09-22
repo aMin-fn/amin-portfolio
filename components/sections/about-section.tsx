@@ -20,7 +20,7 @@ export function AboutSection() {
         <SectionHeading
           description="I work best on products where frontend is more than a collection of screens — complex forms, data-heavy workflows, reusable architecture, and interfaces people depend on."
           eyebrow="How I work"
-          title="Clear interfaces. Strong foundations."
+          title="Complex products. Clear interfaces."
         />
 
         <div className={styles.aboutMosaic}>
@@ -31,7 +31,7 @@ export function AboutSection() {
             </div>
 
             <div className={styles.aboutLeadContent}>
-              <h3>Complex workflows should still feel obvious.</h3>
+              <h3>A form with 40 fields should still feel obvious.</h3>
 
               <p>
                 I care about the parts users actually feel: how quickly a page
@@ -49,11 +49,11 @@ export function AboutSection() {
 
             <div className={styles.aboutPortrait}>
               <Image
-                src="/images/amin-portrait.png"
-                alt="Portrait of Amin Farouzandeh"
+                alt="Portrait of Amin Forouzandeh"
+                className={styles.aboutPortraitImage}
                 fill
                 sizes="(max-width: 760px) 256px, 224px"
-                className={styles.aboutPortraitImage}
+                src="/images/amin-portrait.webp"
               />
             </div>
           </article>
@@ -109,11 +109,8 @@ export function AboutSection() {
             </p>
 
             <div className={styles.aboutActions}>
-              <a
-                className={styles.primaryButton}
-                href={`mailto:${siteConfig.email}`}
-              >
-                Let&apos;s talk <ArrowIcon />
+              <a className={styles.primaryButton} href={`mailto:${siteConfig.email}`}>
+                Start a conversation <ArrowIcon />
               </a>
 
               <a

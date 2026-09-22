@@ -30,30 +30,26 @@ export const navigation: readonly NavItem[] = [
 export const metrics: readonly Metric[] = [
   { value: "3+", label: "Years building production frontends" },
   { value: "5K+", label: "Daily sessions on shipped platforms" },
-  { value: "2.1K+", label: "Active users on a maintained product" },
+  { value: "2K+", label: "Active users on a maintained product" },
 ];
 
 export const marqueeSkills = [
-  "JavaScript",
-  "HTML5",
-  "CSS3",
+  "TypeScript",
   "React.js",
   "Next.js",
-  "TypeScript",
+  "JavaScript",
   "TanStack Query",
   "Redux",
   "React Hook Form",
-  "Bootstrap",
   "Tailwind CSS",
   "REST APIs",
-  "Performance",
 ] as const;
 
 export const experiences: readonly Experience[] = [
   {
     company: "Dadeh Gostar Khat e Roshan",
     role: "Frontend Developer",
-    period: "2025-9 — Present",
+    period: "Sep 2025 — Present",
     location: "Iran",
     summary:
       "Owning frontend delivery across multi-tenant public services, utility PWAs, analytical dashboards, and AI-powered products.",
@@ -64,22 +60,35 @@ export const experiences: readonly Experience[] = [
       "Delivered the Narvan AI marketplace and forecasting interfaces as the sole frontend developer.",
     ],
     technologies: ["Next.js", "TypeScript", "Multi-tenant UI", "Dynamic forms"],
-    image: "/images/companies/main.png"
+    image: "/images/companies/main.webp",
   },
   {
     company: "Digimark AI",
     role: "Frontend Developer",
-    period: "2025-6 2025-9",
+    period: "Jun 2025 — Sep 2025",
     location: "Iran",
     summary:
       "Developed and maintained responsive B2C interfaces for an established product with a large active user base.",
     highlights: [
-      "Shipped real-world customer flows with jQuery and Bootstrap.",
-      "Worked closely with product and design to improve UI consistency, usability, and maintainability.",
+      "Shipped real-world customer flows on a high-traffic storefront.",
+      "Worked with product and design to tighten UI consistency, usability, and maintainability.",
     ],
-    technologies: ["JavaScript", "jQuery", "Bootstrap", "Responsive UI"],
-    image: "/images/companies/digimark.png"
-
+    technologies: ["JavaScript", "Responsive UI", "Bootstrap"],
+    image: "/images/companies/digimark.webp",
+  },
+  {
+    company: "UniCo",
+    role: "Co-Frontend Developer",
+    period: "Oct 2024 — May 2025",
+    location: "Iran",
+    summary:
+      "Built a production student platform covering scheduling, professor reviews, academic analytics, and notifications with a two-person frontend team.",
+    highlights: [
+      "Shared end-to-end delivery across core student workflows still used in production.",
+      "Shipped a responsive product that now serves 2K+ active users.",
+    ],
+    technologies: ["React", "TypeScript", "Product UI"],
+    image: "/images/companies/unico.svg",
   },
   {
     company: "Caspian Oxin",
@@ -93,8 +102,7 @@ export const experiences: readonly Experience[] = [
       "Resolved frontend issues and strengthened practical React development skills.",
     ],
     technologies: ["React.js", "JavaScript", "CSS", "Git"],
-    image: "/images/companies/caspian.png"
-
+    image: "/images/companies/caspian.webp",
   },
 ];
 
@@ -109,9 +117,8 @@ export const projects: readonly Project[] = [
       "Shared end-to-end frontend delivery across scheduling, professor reviews, analytics, and notification workflows.",
       "Built and maintained responsive product experiences together with one other frontend developer.",
     ],
-    outcome: "2000+ active users",
-    href: "https://uni-co.ir",
-    linkLabel: "Visit product",
+    outcome: "2K+ active users",
+    links: [{ label: "Visit product", href: "https://uni-co.ir" }],
     status: "Live",
     technologies: ["React", "TypeScript", "State management", "Responsive UI"],
     tone: "amber",
@@ -129,16 +136,16 @@ export const projects: readonly Project[] = [
         height: 915,
       },
       {
-        src: "/projects/unico/dashboard.png",
+        src: "/projects/unico/dashboard.webp",
         alt: "UniCo student dashboard and academic calendar",
-        width: 839,
-        height: 910,
+        width: 1400,
+        height: 883,
       },
       {
-        src: "/projects/unico/academic-analytics.png",
+        src: "/projects/unico/academic-analytics.webp",
         alt: "UniCo academic performance analytics and semester grades",
-        width: 1279,
-        height: 707,
+        width: 1400,
+        height: 777,
       },
     ],
     featured: true,
@@ -148,29 +155,36 @@ export const projects: readonly Project[] = [
     eyebrow: "Multi-tenant Public Service Platform",
     role: "Sole Frontend Developer · Architecture & delivery",
     description:
-      "A reusable e-services frontend built for Ministry of Energy workflows. Environment-based tenant configuration switches branding, themes, API endpoints, and product settings without duplicating the application.",
+      "A reusable e-services frontend for Ministry of Energy workflows. Environment-based tenant configuration switches branding, themes, API endpoints, and product settings without duplicating the application.",
     contributions: [
       "Designed API-driven dynamic forms with conditional fields, validation, and service-specific workflows.",
       "Built reusable data tables and charts for operational and customer-service interfaces.",
     ],
     outcome: "One frontend architecture · multiple utility tenants",
-    href: "https://new-eservice.demo.khateroshan.com/",
-    linkLabel: "View demo",
+    links: [
+      { label: "View demo", href: "https://new-eservice.demo.khateroshan.com/" },
+    ],
     status: "Demo",
-    technologies: ["Next.js", "TypeScript", "Multi-tenant architecture", "Dynamic forms", "Data visualization"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Multi-tenant architecture",
+      "Dynamic forms",
+      "Data visualization",
+    ],
     tone: "amber",
     images: [
       {
-        src: "/projects/electricity/services-home.png",
+        src: "/projects/electricity/services-home.webp",
         alt: "National electricity e-services portal home and service discovery interface",
-        width: 1665,
-        height: 913,
+        width: 1600,
+        height: 877,
       },
       {
-        src: "/projects/electricity/request-details-redacted.png",
+        src: "/projects/electricity/request-details-redacted.webp",
         alt: "Privacy-safe electricity service request tracking and detail interface",
-        width: 1647,
-        height: 903,
+        width: 1600,
+        height: 877,
       },
     ],
     featured: true,
@@ -186,25 +200,26 @@ export const projects: readonly Project[] = [
       "Refined the mobile UI into a consistent and reliable production experience.",
     ],
     outcome: "+4k installs on Café Bazaar",
-    href: "https://cafebazaar.ir/app/hamrah.abfa.twa",
-    url:"https://app.nww.ir",
-    linkLabel: "View on Café Bazaar",
+    links: [
+      { label: "Open web app", href: "https://app.nww.ir" },
+      { label: "Café Bazaar", href: "https://cafebazaar.ir/app/hamrah.abfa.twa" },
+    ],
     status: "Live",
-    technologies: ["Next.js", "TypeScript", "REST API", "React Hook Form"],
+    technologies: ["TypeScript", "REST API", "React Hook Form"],
     tone: "aqua",
     imagePresentation: "mobile",
     images: [
       {
-        src: "/projects/nww/customer-dashboard.png",
+        src: "/projects/nww/customer-dashboard.webp",
         alt: "Mobile water utility billing, requests, and reports dashboard",
-        width: 359,
-        height: 804,
+        width: 321,
+        height: 720,
       },
       {
-        src: "/projects/nww/subscription-services.png",
+        src: "/projects/nww/subscription-services.webp",
         alt: "Mobile water-services subscription and customer service dashboard",
-        width: 360,
-        height: 801,
+        width: 323,
+        height: 720,
       },
     ],
   },
@@ -220,15 +235,15 @@ export const projects: readonly Project[] = [
     ],
     outcome: "Modernized utility PWA · demo environment",
     status: "Demo",
-    technologies: ["Next.js", "TypeScript", "REST API", "Responsive UI"],
+    technologies: ["TypeScript", "REST API", "Responsive UI"],
     tone: "amber",
     imagePresentation: "mobile",
     images: [
       {
-        src: "/projects/nigc/customer-dashboard.png",
+        src: "/projects/nigc/customer-dashboard.webp",
         alt: "Mobile national gas services customer dashboard",
-        width: 360,
-        height: 805,
+        width: 321,
+        height: 720,
       },
     ],
   },
@@ -248,13 +263,13 @@ export const projects: readonly Project[] = [
     tone: "violet",
     images: [
       {
-        src: "/projects/narvan/forecasting-dashboard.png",
+        src: "/projects/narvan/forecasting-dashboard.webp",
         alt: "Narvan AI forecasting and consumption analytics dashboard",
-        width: 1662,
-        height: 908,
+        width: 1600,
+        height: 874,
       },
       {
-        src: "/projects/narvan/ai-marketplace-home.png",
+        src: "/projects/narvan/ai-marketplace-home.webp",
         alt: "Narvan AI models marketplace landing page",
         width: 1408,
         height: 911,

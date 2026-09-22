@@ -9,17 +9,17 @@ export default function OpenGraphImage() {
     <div
       style={{
         alignItems: "stretch",
-        background: "#f1f0e9",
-        color: "#171816",
+        background: "#101011",
+        color: "#f1f1ef",
         display: "flex",
         height: "100%",
-        padding: "64px",
+        padding: "48px",
         width: "100%",
       }}
     >
       <div
         style={{
-          border: "2px solid #171816",
+          border: "1px solid #3b3b40",
           display: "flex",
           flex: 1,
           flexDirection: "column",
@@ -27,37 +27,22 @@ export default function OpenGraphImage() {
           padding: "52px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 24, justifyContent: "space-between" }}>
+        <div style={{ display: "flex", fontSize: 22, justifyContent: "space-between", letterSpacing: "0.12em" }}>
           <span>AMIN FOROUZANDEH</span>
-          <span>FRONTEND / 2026</span>
+          <span>FRONTEND</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ fontSize: 93, fontWeight: 650, letterSpacing: "-6px", lineHeight: 0.95 }}>
-            Clear, fast products
+          <span style={{ fontSize: 72, fontWeight: 650, letterSpacing: "-4px", lineHeight: 0.95 }}>
+            Production frontends
           </span>
-          <span style={{ color: "#6356f6", fontSize: 93, fontWeight: 650, letterSpacing: "-6px", lineHeight: 0.95 }}>
-            for real people.
+          <span style={{ color: "#9f95ff", fontSize: 72, fontWeight: 650, letterSpacing: "-4px", lineHeight: 0.95 }}>
+            for real products.
           </span>
         </div>
         <div style={{ display: "flex", fontSize: 22, justifyContent: "space-between" }}>
           <span>React · Next.js · TypeScript</span>
-          <span>Isfahan ,    ,   , Iran</span>
+          <span>Isfahan, Iran</span>
         </div>
-      </div>
-      <div
-        style={{
-          alignItems: "center",
-          background: "#dfff56",
-          border: "2px solid #171816",
-          borderLeft: "0px",
-          display: "flex",
-          fontSize: 38,
-          fontWeight: 750,
-          justifyContent: "center",
-          width: 128,
-        }}
-      >
-        AF
       </div>
     </div>,
     size,

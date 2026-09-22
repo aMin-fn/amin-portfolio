@@ -1,11 +1,7 @@
 import type { CSSProperties } from "react";
 import type { IconType } from "react-icons";
 import {
-  SiBootstrap,
-  SiCss,
-  SiHtml5,
   SiJavascript,
-  SiLighthouse,
   SiNextdotjs,
   SiOpenapiinitiative,
   SiReact,
@@ -24,18 +20,14 @@ type SkillName = (typeof marqueeSkills)[number];
 
 const skillVisuals: Record<SkillName, { icon: IconType; color: string }> = {
   JavaScript: { icon: SiJavascript, color: "#f7df1e" },
-  HTML5: { icon: SiHtml5, color: "#e34f26" },
-  CSS3: { icon: SiCss, color: "#1572b6" },
   "React.js": { icon: SiReact, color: "#61dafb" },
   "Next.js": { icon: SiNextdotjs, color: "var(--ink)" },
   TypeScript: { icon: SiTypescript, color: "#3178c6" },
   "TanStack Query": { icon: SiReactquery, color: "#ff4154" },
   Redux: { icon: SiRedux, color: "#8b6dcc" },
   "React Hook Form": { icon: SiReacthookform, color: "#ec5990" },
-  Bootstrap: { icon: SiBootstrap, color: "#7952b3" },
   "Tailwind CSS": { icon: SiTailwindcss, color: "#06b6d4" },
   "REST APIs": { icon: SiOpenapiinitiative, color: "#6ba539" },
-  Performance: { icon: SiLighthouse, color: "#f44b21" },
 };
 
 function SkillItem({ skill }: { skill: SkillName }) {

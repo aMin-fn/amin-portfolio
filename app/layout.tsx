@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Amin Forouzandeh — Frontend Developer",
   description:
-    "Frontend developer building fast, scalable React and Next.js products for enterprise and B2C teams.",
+    "Frontend developer shipping production React and Next.js for national services, AI products, and high-traffic platforms.",
   keywords: [
     "Amin FOROUZANDEH",
     "Frontend Developer",

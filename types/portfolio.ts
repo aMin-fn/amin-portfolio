@@ -17,7 +17,7 @@ export type Experience = {
   period: string;
   location?: string;
   summary: string;
-  image: string;
+  image?: string;
   highlights: readonly string[];
   technologies: readonly string[];
 };
@@ -29,6 +29,11 @@ export type ProjectImage = {
   height: number;
 };
 
+export type ProjectLink = {
+  label: string;
+  href: `https://${string}`;
+};
+
 export type Project = {
   title: string;
   eyebrow: string;
@@ -36,8 +41,7 @@ export type Project = {
   description: string;
   contributions: readonly string[];
   outcome: string;
-  href?: `https://${string}`;
-  url?: `https://${string}`;
+  links?: readonly ProjectLink[];
   linkLabel?: string;
   status: "Live" | "Demo" | "Private" | "Private case study" | "Concept";
   technologies: readonly string[];
